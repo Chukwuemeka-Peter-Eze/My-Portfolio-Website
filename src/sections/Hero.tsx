@@ -1,29 +1,41 @@
+import { profile } from "@/data/profile";
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 className="text-6xl font-bold">
-        Chukwuemeka Peter Eze
-      </h1>
+    <section className="min-h-screen flex items-center">
+      <div className="max-w-6xl mx-auto px-6">
 
-      <h2 className="text-2xl mt-4">
-        Cloud Security & DevOps Engineer
-      </h2>
+        <p className="text-blue-600 font-medium">
+          Cloud Security • DevOps • Platform Engineering
+        </p>
 
-      <p className="mt-6 max-w-3xl text-lg">
-        Building scalable cloud infrastructure,
-        automating deployments, securing workloads,
-        and designing enterprise-grade solutions with
-        AWS, Kubernetes, Terraform, and DevOps practices.
-      </p>
+        <h1 className="text-6xl font-bold mt-4">
+          {profile.name}
+        </h1>
 
-      <div className="flex gap-4 mt-8">
-        <button className="bg-black text-white px-6 py-3 rounded-lg">
-          View Projects
-        </button>
+        <h2 className="text-3xl mt-4 text-gray-700">
+          {profile.role}
+        </h2>
 
-        <button className="border px-6 py-3 rounded-lg">
-          Download Resume
-        </button>
+        <p className="mt-8 text-xl max-w-4xl leading-relaxed">
+          I help organizations design secure,
+          scalable and highly available cloud
+          platforms through AWS, Kubernetes,
+          Terraform, DevSecOps and modern
+          infrastructure automation.
+        </p>
+
+        <div className="flex gap-4 mt-10">
+
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+            View Projects
+          </button>
+
+          <button className="border px-6 py-3 rounded-lg">
+            Download Resume
+          </button>
+
+        </div>
       </div>
     </section>
   );
