@@ -1,19 +1,119 @@
-export default function Navbar() {
-  return (
-    <nav className="fixed top-0 w-full bg-white shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-        <h1 className="font-bold text-xl">
-          Chukwuemeka Peter Eze
-        </h1>
+"use client";
 
-        <ul className="flex gap-6">
-          <li>About</li>
-          <li>Projects</li>
-          <li>Certifications</li>
-          <li>Blog</li>
-          <li>Contact</li>
-        </ul>
+import useScroll from "@/hooks/useScroll";
+import Link from "next/link";
+import clsx from "clsx";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+import ThemeToggle from "@/components/ThemeToggle";
+import Button from "@/components/ui/Button";
+import { navigation } from "@/data/navigation";
+import { profile } from "@/data/profile";
+import useActiveSection from "@/hooks/useActiveSection";
+
+export default function Navbar() {
+  const activeSection = useActiveSection();
+  const [isOpen, setIsOpen] = useState(false);
+  const scrolled = useScroll();
+
+  return (
+    <header
+      className={clsx(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        scrolled
+          ? "border-b border-slate-200/70 bg-white/85 shadow-lg backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/85"
+          : "bg-transparent"
+      )}
+    >
+      <div
+        className={clsx(
+          "mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-300",
+          scrolled ? "py-3" : "py-5"
+        )}
+      >
+        {/* Logo */}
+
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-wide transition-all duration-300 hover:text-cyan-500 dark:text-white"
+        >
+          {profile.name}
+        </Link>
+
+        {/* Desktop Navigation */}
+
+        <nav className="hidden items-center gap-6 lg:flex">
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className={clsx(
+                "relative transition-all duration-300 hover:text-cyan-500",
+                activeSection === item.href.substring(1)
+                  ? "font-semibold text-cyan-500"
+                  : "text-slate-600 hover:text-cyan-500 dark:text-slate-300"
+              )}
+            >
+              {item.name}
+            </a>
+          ))}
+
+          {/* Certification Journey */}
+
+          <Link
+            href="/certification-journey"
+            className="rounded-lg border border-cyan-500 px-4 py-2 text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
+          >
+            Certification Journey
+          </Link>
+
+          <ThemeToggle />
+          
+        </nav>
+
+        {/* Mobile Menu Button */}
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          {isOpen ? <X /> : <Menu />}
+        </button>
       </div>
-    </nav>
+
+      {/* Mobile Navigation */}
+
+      {isOpen && (
+        <div className="border-t border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden">
+          <div className="flex flex-col gap-4">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="text-slate-700 dark:text-slate-300"
+              >
+                {item.name}
+              </a>
+            ))}
+
+            {/* Certification Journey */}
+
+            <Link
+              href="/certification-journey"
+              onClick={() => setIsOpen(false)}
+              className="rounded-lg border border-cyan-500 px-4 py-2 text-center text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
+            >
+              Certification Journey
+            </Link>
+
+            <ThemeToggle />
+            
+          </div>
+        </div>
+      )}
+    </header>
   );
 }

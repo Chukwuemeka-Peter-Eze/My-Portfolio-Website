@@ -1,19 +1,22 @@
 export const profile = {
   name: "Chukwuemeka Peter Eze",
 
-  role: "Cloud Security & DevOps Engineer",
-
-  location: "Nigeria",
+  title: "Cloud Security & DevOps Engineer",
 
   tagline:
-    "Designing secure, scalable cloud infrastructure and automated delivery platforms.",
+    "Designing secure, scalable cloud infrastructure and modern DevSecOps platforms.",
 
-  summary:
-    "Cloud Security & DevOps Engineer focused on designing, automating, and securing cloud-native infrastructure using AWS, Terraform, Docker, Kubernetes, and modern DevSecOps practices.",
+  location:
+    "Nigeria • Open to Remote • Global • Relocation",
 
-  email: "Chukwuemekapetereze@proton.me",
+  email:
+    "Chukwuemekapetereze@proton.me",
 
-  github: "https://github.com/Chukwuemeka-Peter-Eze",
+  phone:
+    "+2347069393099",
+
+  github:
+    "https://github.com/Chukwuemeka-Peter-Eze",
 
   linkedin:
     "https://www.linkedin.com/in/chukwuemekapetereze/",
@@ -21,6 +24,9 @@ export const profile = {
   medium:
     "https://medium.com/@ChukwuemekaPeterEze",
 
+  portfolio:
+    "https://chukwuemekapetereze.online",
+
   motto:
-    "Learn relentlessly. Build intentionally. Improve continuously.",
+    "Learn relentlessly. Build intentionally. Improve continuously."
 };

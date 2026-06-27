@@ -1,0 +1,22 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function useScroll() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 20);
+    }
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () =>
+      window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return scrolled;
+}

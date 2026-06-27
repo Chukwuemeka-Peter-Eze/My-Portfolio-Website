@@ -1,76 +1,92 @@
-const skills = {
-  Cloud: [
-    "AWS",
-    "EC2",
-    "S3",
-    "IAM",
-    "VPC",
-    "RDS"
-  ],
+export const skillCategories = [
+  {
+    title: "Cloud Platforms",
+    icon: "cloud",
+    skills: [
+      "AWS",
+      "EC2",
+      "S3",
+      "IAM",
+      "VPC",
+      "RDS",
+      "Route 53",
+      "CloudWatch",
+    ],
+  },
 
-  Containers: [
-    "Docker",
-    "Kubernetes",
-    "Amazon EKS",
-    "Helm"
-  ],
+  {
+    title: "Infrastructure as Code",
+    icon: "server",
+    skills: [
+      "Terraform",
+      "CloudFormation",
+      "Reusable Modules",
+    ],
+  },
 
-  IaC: [
-    "Terraform",
-    "CloudFormation"
-  ],
+  {
+    title: "Containers & Kubernetes",
+    icon: "boxes",
+    skills: [
+      "Docker",
+      "Kubernetes",
+      "Amazon EKS",
+      "Helm",
+    ],
+  },
 
-  DevOps: [
-    "GitHub Actions",
-    "Jenkins",
-    "Git",
-    "Linux"
-  ],
+  {
+    title: "CI/CD & Platform Engineering",
+    icon: "workflow",
+    skills: [
+      "Git",
+      "GitHub Actions",
+      "Jenkins",
+      "Linux",
+    ],
+  },
 
-  Security: [
-    "IAM",
-    "RBAC",
-    "AWS KMS",
-    "Secrets Manager"
-  ],
+  {
+    title: "Cloud Security",
+    icon: "shield",
+    skills: [
+      "IAM",
+      "RBAC",
+      "AWS KMS",
+      "Secrets Manager",
+      "Least Privilege",
+    ],
+  },
 
-  Monitoring: [
-    "CloudWatch",
-    "Prometheus",
-    "Grafana",
-    "ELK"
-  ]
-};
+  {
+    title: "Observability",
+    icon: "activity",
+    skills: [
+      "Prometheus",
+      "Grafana",
+      "CloudWatch",
+      "ELK Stack",
+    ],
+  },
 
-export default function Skills() {
-  return (
-    <section className="py-24 px-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold mb-10">
-        Technical Expertise
-      </h2>
+  {
+    title: "Programming",
+    icon: "code",
+    skills: [
+      "Python",
+      "Bash",
+    ],
+  },
 
-      {Object.entries(skills).map(
-        ([category, items]) => (
-          <div key={category} className="mb-8">
-
-            <h3 className="font-semibold text-xl">
-              {category}
-            </h3>
-
-            <div className="flex flex-wrap gap-3 mt-4">
-              {items.map((item) => (
-                <span
-                  key={item}
-                  className="border px-4 py-2 rounded-full"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-          </div>
-        )
-      )}
-    </section>
-  );
-}
+  {
+    title: "Networking",
+    icon: "network",
+    skills: [
+      "VPC Design",
+      "Subnetting",
+      "Routing",
+      "Load Balancing",
+      "DNS",
+    ],
+  },
+];
