@@ -45,15 +45,16 @@ ${message}
       id: result.data?.id,
     });
   } catch (error) {
-    console.error("Server error:", error);
+  console.error("Server error:", error);
 
-    return NextResponse.json(
-      {
-        success: false,
-      },
-      {
-        status: 500,
-      }
-    );
-  }
+  return NextResponse.json(
+    {
+      success: false,
+      error: String(error),
+    },
+    {
+      status: 500,
+    }
+  );
+}
 }
