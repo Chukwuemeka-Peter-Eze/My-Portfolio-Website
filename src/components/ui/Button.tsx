@@ -1,78 +1,42 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 
-type ButtonProps = {
-  href?: string;
+type Props = {
+  href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "outline";
+  external?: boolean;
 };
 
 export default function Button({
   href,
   children,
   variant = "primary",
-}: ButtonProps) {
-  const classes =
-    variant === "primary"
-      ? `
-          bg-cyan-500
-          text-white
-          hover:bg-cyan-600
-        `
-      : `
-          border
-          border-cyan-500
-          text-cyan-500
-          hover:bg-cyan-500
-          hover:text-white
-        `;
+  external = false,
+}: Props) {
+  const base =
+    "inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold transition-all duration-300 hover:scale-105";
 
-  // If href exists, render a Link
-  if (href) {
+  const styles = {
+    primary: `${base} bg-cyan-500 text-slate-950 hover:bg-cyan-400`,
+    outline: `${base} border border-cyan-500 text-cyan-500 hover:bg-cyan-500 hover:text-white`,
+  };
+
+  if (external) {
     return (
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.97 }}
+      <a     
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles[variant]}
       >
-        <Link
-          href={href}
-          className={`
-            inline-flex
-            items-center
-            justify-center
-            rounded-xl
-            px-6
-            py-3
-            font-semibold
-            transition-colors
-            duration-300
-            ${classes}
-          `}
-        >
-          {children}
-        </Link>
-      </motion.div>
+        {children}
+      </a>
     );
   }
 
-  // Otherwise render a normal button
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.97 }}
-      className={`
-        rounded-xl
-        px-6
-        py-3
-        font-semibold
-        transition-colors
-        duration-300
-        ${classes}
-      `}
-    >
+    <Link href={href} className={styles[variant]}>
       {children}
-    </motion.button>
+    </Link>
   );
 }

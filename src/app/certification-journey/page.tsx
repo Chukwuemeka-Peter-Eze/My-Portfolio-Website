@@ -3,12 +3,9 @@ import CertificationJourney from "@/sections/CertificationJourney";
 
 export default function CertificationJourneyPage() {
   return (
-    <main className="bg-slate-950 text-white min-h-screen">
-
+    <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white min-h-screen">
       <Navbar />
-
       <CertificationJourney />
-
     </main>
   );
 }

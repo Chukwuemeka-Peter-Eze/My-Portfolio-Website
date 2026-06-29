@@ -8,26 +8,22 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24"
+      className="bg-white py-24 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-7xl px-6">
-
         <SectionTitle
           subtitle="Portfolio"
           title="Featured Engineering Projects"
         />
-
-        <div className="grid gap-10 lg:grid-cols-2">
-
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-            />
-          ))}
-
-        </div>
-
+        <Stagger>
+          <div className="grid gap-10 lg:grid-cols-2">
+            {projects.map((project) => (
+              <StaggerItem key={project.title}>
+                <ProjectCard project={project} />
+              </StaggerItem>
+            ))}
+          </div>
+        </Stagger>
       </div>
     </section>
   );

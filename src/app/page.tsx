@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
@@ -13,30 +12,18 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-slate-950 text-white">
-
+    <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <Navbar />
-
       <Hero />
-
       <About />
-
       <Skills />
-
       <Projects />
-
       <Experience />
-
       <Certifications />
-
       <GitHub />
-
       <Blog />
-
       <Contact />
-
       <Footer />
-
     </main>
   );
 }

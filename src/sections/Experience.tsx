@@ -7,26 +7,20 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-slate-900 py-24"
+      className="bg-slate-100 py-24 dark:bg-slate-900"
     >
       <div className="mx-auto max-w-6xl px-6">
-
         <SectionTitle
           subtitle="Career Journey"
           title="Professional Experience"
         />
-
         <div className="space-y-10">
-        <ScaleIn>
-          {experience.map((job) => (
-            <ExperienceCard
-              key={job.company}
-              job={job}
-            />
-          ))}
-        </ScaleIn>
+          <ScaleIn>
+            {experience.map((job) => (
+              <ExperienceCard key={job.company} job={job} />
+            ))}
+          </ScaleIn>
         </div>
-
       </div>
     </section>
   );

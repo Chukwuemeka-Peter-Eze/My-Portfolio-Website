@@ -1,29 +1,30 @@
 import Image from "next/image";
+import { profile } from "@/data/profile";
 
 export default function ProfileCard() {
   return (
-    <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-xl">
-
-      <Image
-        src="/images/profile.jpg"
-        alt="Chukwuemeka Peter Eze"
-        width={320}
-        height={320}
-        className="rounded-2xl mx-auto"
-      />
-
-      <h3 className="mt-6 text-center text-2xl font-bold">
-        Chukwuemeka Peter Eze
-      </h3>
-
-      <p className="mt-2 text-center text-cyan-500">
-        Cloud Security & DevOps Engineer
-      </p>
-
-      <p className="mt-4 text-center text-slate-500 dark:text-slate-400">
-        Building secure, scalable cloud infrastructure and modern DevSecOps platforms.
-      </p>
-
+    <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="relative h-72 w-full bg-gradient-to-br from-cyan-500/20 to-slate-900/20">
+        <Image
+          src="/images/profile.jpg"
+          alt={profile.name}
+          fill
+          loading="eager"
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold">{profile.name}</h3>
+        <p className="mt-1 text-sm text-cyan-500">{profile.title}</p>
+        <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
+          {profile.tagline}
+        </p>
+        <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
+          <span>📍</span>
+          <span>{profile.location}</span>
+        </div>
+      </div>
     </div>
   );
 }

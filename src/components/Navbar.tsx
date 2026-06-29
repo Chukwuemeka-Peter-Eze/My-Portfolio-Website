@@ -5,9 +5,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
 import ThemeToggle from "@/components/ThemeToggle";
-import Button from "@/components/ui/Button";
 import { navigation } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import useActiveSection from "@/hooks/useActiveSection";
@@ -22,7 +20,7 @@ export default function Navbar() {
       className={clsx(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-slate-200/70 bg-white/85 shadow-lg backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/85"
+          ? "border-b border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-xl dark:border-slate-800/70 dark:bg-slate-950/90"
           : "bg-transparent"
       )}
     >
@@ -33,50 +31,42 @@ export default function Navbar() {
         )}
       >
         {/* Logo */}
-
         <Link
           href="/"
-          className="text-lg font-bold tracking-wide transition-all duration-300 hover:text-cyan-500 dark:text-white"
+          className="text-lg font-bold tracking-wide text-slate-900 transition-all duration-300 hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400"
         >
           {profile.name}
         </Link>
 
         {/* Desktop Navigation */}
-
         <nav className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
-            <a
+            <a         
               key={item.name}
               href={item.href}
               className={clsx(
-                "relative transition-all duration-300 hover:text-cyan-500",
+                "text-sm transition-all duration-300 hover:text-cyan-500",
                 activeSection === item.href.substring(1)
                   ? "font-semibold text-cyan-500"
-                  : "text-slate-600 hover:text-cyan-500 dark:text-slate-300"
+                  : "text-slate-600 dark:text-slate-300"
               )}
             >
               {item.name}
             </a>
           ))}
-
-          {/* Certification Journey */}
-
           <Link
             href="/certification-journey"
-            className="rounded-lg border border-cyan-500 px-4 py-2 text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
+            className="rounded-lg border border-cyan-500 px-4 py-2 text-sm text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
           >
             Certification Journey
           </Link>
-
           <ThemeToggle />
-          
         </nav>
 
         {/* Mobile Menu Button */}
-
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden"
+          className="text-slate-700 dark:text-slate-300 lg:hidden"
           aria-label="Toggle navigation menu"
         >
           {isOpen ? <X /> : <Menu />}
@@ -84,33 +74,27 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-
       {isOpen && (
         <div className="border-t border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden">
           <div className="flex flex-col gap-4">
             {navigation.map((item) => (
-              <a
+              <a             
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-slate-700 dark:text-slate-300"
+                className="text-slate-700 transition hover:text-cyan-500 dark:text-slate-300"
               >
                 {item.name}
               </a>
             ))}
-
-            {/* Certification Journey */}
-
             <Link
               href="/certification-journey"
               onClick={() => setIsOpen(false)}
-              className="rounded-lg border border-cyan-500 px-4 py-2 text-center text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
+              className="rounded-lg border border-cyan-500 px-4 py-2 text-center text-sm text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
             >
               Certification Journey
             </Link>
-
             <ThemeToggle />
-            
           </div>
         </div>
       )}

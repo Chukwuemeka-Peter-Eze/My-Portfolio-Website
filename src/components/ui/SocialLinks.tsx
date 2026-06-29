@@ -1,38 +1,37 @@
 import Link from "next/link";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaMedium,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa6";
+import { profile } from "@/data/profile";
 
 export default function SocialLinks() {
   return (
-    <div className="flex gap-4 mt-8">
-
+    <div className="mt-8 flex items-center gap-5">
       <Link
-        href="https://github.com/Chukwuemeka-Peter-Eze"
+        href={profile.github}
         target="_blank"
-        className="text-2xl hover:text-cyan-500 transition"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        className="text-2xl text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
       >
         <FaGithub />
       </Link>
-
       <Link
-        href="https://www.linkedin.com/in/chukwuemekapetereze/"
+        href={profile.linkedin}
         target="_blank"
-        className="text-2xl hover:text-cyan-500 transition"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        className="text-2xl text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
       >
         <FaLinkedin />
       </Link>
-
       <Link
-        href="https://medium.com/@ChukwuemekaPeterEze"
+        href={profile.medium}
         target="_blank"
-        className="text-2xl hover:text-cyan-500 transition"
+        rel="noopener noreferrer"
+        aria-label="Medium"
+        className="text-2xl text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
       >
         <FaMedium />
       </Link>
-
     </div>
   );
 }
