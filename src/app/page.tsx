@@ -9,6 +9,7 @@ import GitHub from "@/sections/GitHub";
 import Blog from "@/sections/Blog";
 import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
+import CommandPalette from "@/components/CommandPalette";
 
 export default function Home() {
   return (
@@ -24,6 +25,8 @@ export default function Home() {
       <Blog />
       <Contact />
       <Footer />
+      <CommandPalette />
     </main>
+    
   );
 }

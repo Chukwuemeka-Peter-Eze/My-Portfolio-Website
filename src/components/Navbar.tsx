@@ -94,6 +94,20 @@ export default function Navbar() {
             >
               Certification Journey
             </Link>
+            <button
+              onClick={() => {
+                const event = new KeyboardEvent("keydown", {
+                key: "k",
+                metaKey: true,
+                bubbles: true,
+              });
+                window.dispatchEvent(event);
+              }}
+              className="hidden items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs text-slate-500 transition hover:border-cyan-500 hover:text-cyan-500 dark:border-slate-700 dark:text-slate-400 lg:flex"
+              aria-label="Open command palette"
+            >
+              <span>⌘K</span>
+            </button>
             <ThemeToggle />
           </div>
         </div>
