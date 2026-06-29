@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Check whether the API key exists when the server starts
-console.log("API KEY EXISTS:", !!process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  // Check whether the API key exists for this request
+  console.log("API KEY EXISTS:", !!process.env.RESEND_API_KEY);
+
+  // Create the Resend client at request time
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const { name, email, subject, message } = await request.json();
 
@@ -58,7 +59,6 @@ ${message}
       success: true,
       id: result.data?.id,
     });
-
   } catch (error) {
     console.error("Server error:", error);
 
