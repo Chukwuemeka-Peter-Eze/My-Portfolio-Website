@@ -3,7 +3,7 @@
 import useScroll from "@/hooks/useScroll";
 import Link from "next/link";
 import clsx from "clsx";
-import { Menu, X } from "lucide-react";
+import { Menu, X, House } from "lucide-react";
 import { useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { navigation } from "@/data/navigation";
@@ -31,12 +31,16 @@ export default function Navbar() {
         )}
       >
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-lg font-bold tracking-wide text-slate-900 transition-all duration-300 hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400"
-        >
-          {profile.name}
-        </Link>
+        {/* Logo */}
+          <Link
+            href="/"
+            aria-label="Go to homepage"
+            className="group flex items-center transition-all duration-300"
+          >
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500 text-white shadow-md transition-all duration-300 group-hover:scale-105 group-hover:bg-cyan-600 dark:bg-cyan-400 dark:text-slate-950 dark:group-hover:bg-cyan-300">
+            <House size={22} strokeWidth={2.3} />
+          </div>
+          </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
