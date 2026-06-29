@@ -49,38 +49,53 @@ export default function Footer() {
             <h3 className="mb-4 font-semibold text-slate-900 dark:text-white">
               Connect
             </h3>
+
             <div className="flex gap-5 text-2xl">
+
+              {/* GitHub */}
               <Link
                 href={profile.github}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
                 className="text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
               >
                 <FaGithub />
               </Link>
+
+              {/* LinkedIn */}
               <Link
                 href={profile.linkedin}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="LinkedIn"
                 className="text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
               >
                 <FaLinkedin />
               </Link>
+
+              {/* Medium */}
               <Link
                 href={profile.medium}
                 target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Medium"
                 className="text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
               >
                 <FaMedium />
               </Link>
+
+              {/* Resume */}
               <Link
-                href="/resume"
+                href="/resume/chukwuemekapetereze_devops_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Resume"
                 className="text-slate-500 transition hover:text-cyan-500 dark:text-slate-400 dark:hover:text-cyan-400"
               >
                 <FileText size={24} />
               </Link>
+
             </div>
           </div>
 
