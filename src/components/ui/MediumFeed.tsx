@@ -7,11 +7,24 @@ type MediumArticle = {
   link: string;
   pubDate: string;
   thumbnail: string;
-  categories: string[];
+  category: string;
   description: string;
 };
 
 const MEDIUM_USERNAME = "ChukwuemekaPeterEze";
+
+function extractImageFromContent(content: string): string {
+  const match = content.match(/<img[^>]+src="([^"]+)"/);
+  return match ? match[1] : "";
+}
+
+function extractTextFromHTML(html: string): string {
+  return html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 180) + "...";
+}
 
 export default function MediumFeed() {
   const [articles, setArticles] = useState<MediumArticle[]>([]);
@@ -21,32 +34,39 @@ export default function MediumFeed() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const rss = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
-        const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rss)}&api_key=public&count=6`;
-        const res = await fetch(api);
-        if (!res.ok) throw new Error("Failed to fetch");
+        const rssUrl = `https://medium.com/feed/@${MEDIUM_USERNAME}`;
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssUrl)}`;
+
+        const res = await fetch(proxyUrl);
+        if (!res.ok) throw new Error("Fetch failed");
+
         const data = await res.json();
-        if (data.status !== "ok") throw new Error("Bad response");
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data.contents, "text/xml");
+        const items = Array.from(xml.querySelectorAll("item")).slice(0, 6);
 
-        const mapped: MediumArticle[] = data.items.map((item: any) => {
-          const imgMatch = item.content?.match(/<img[^>]+src="([^">]+)"/);
-          const thumbnail = item.thumbnail || (imgMatch ? imgMatch[1] : "/blogs/default.png");
-          const description = item.description
-            ?.replace(/<[^>]+>/g, "")
-            ?.slice(0, 160) + "...";
+        const mapped: MediumArticle[] = items.map((item) => {
+          const title = item.querySelector("title")?.textContent?.trim() ?? "";
+          const link = item.querySelector("link")?.textContent?.trim() ?? "#";
+          const pubDateRaw = item.querySelector("pubDate")?.textContent ?? "";
+          const pubDate = pubDateRaw
+            ? new Date(pubDateRaw).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })
+            : "";
 
-          return {
-            title: item.title,
-            link: item.link,
-            pubDate: new Date(item.pubDate).toLocaleDateString("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            }),
-            thumbnail,
-            categories: item.categories?.slice(0, 2) || ["Article"],
-            description,
-          };
+          const contentEncoded =
+            item.getElementsByTagNameNS("*", "encoded")[0]?.textContent ?? "";
+          const description = extractTextFromHTML(contentEncoded);
+          const thumbnail = extractImageFromContent(contentEncoded);
+
+          const categoryNodes = item.querySelectorAll("category");
+          const category =
+            categoryNodes[0]?.textContent?.trim() ?? "DevOps";
+
+          return { title, link, pubDate, thumbnail, category, description };
         });
 
         setArticles(mapped);
@@ -64,14 +84,16 @@ export default function MediumFeed() {
     return (
       <div className="grid gap-8 lg:grid-cols-3">
         {[...Array(6)].map((_, i) => (
-          <div key={i} className="animate-pulse rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+          <div
+            key={i}
+            className="animate-pulse rounded-2xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+          >
             <div className="h-48 rounded-t-2xl bg-slate-200 dark:bg-slate-800" />
-            <div className="p-6 space-y-3">
+            <div className="space-y-3 p-6">
               <div className="h-3 w-20 rounded bg-slate-200 dark:bg-slate-800" />
               <div className="h-4 w-full rounded bg-slate-200 dark:bg-slate-800" />
               <div className="h-4 w-3/4 rounded bg-slate-200 dark:bg-slate-800" />
               <div className="h-3 w-full rounded bg-slate-200 dark:bg-slate-800" />
-              <div className="h-3 w-2/3 rounded bg-slate-200 dark:bg-slate-800" />
             </div>
           </div>
         ))}
@@ -83,8 +105,8 @@ export default function MediumFeed() {
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-10 text-center dark:border-slate-800 dark:bg-slate-900">
         <p className="text-slate-500 dark:text-slate-400">
-          Articles are loading. Visit{" "}
-            <a                 
+          Visit{" "}
+         <a    
             href={`https://medium.com/@${MEDIUM_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -92,7 +114,7 @@ export default function MediumFeed() {
           >
             Medium
           </a>{" "}
-          to read them directly.
+          to read all articles directly.
         </p>
       </div>
     );
@@ -101,7 +123,7 @@ export default function MediumFeed() {
   return (
     <div className="grid gap-8 lg:grid-cols-3">
       {articles.map((article) => (
-        <a          
+        <a
           key={article.link}
           href={article.link}
           target="_blank"
@@ -109,32 +131,33 @@ export default function MediumFeed() {
           className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
         >
           <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
-            <img
-              src={article.thumbnail}
-              alt={article.title}
-              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "/blogs/default.png";
-              }}
-            />
+            {article.thumbnail ? (
+              <img
+                src={article.thumbnail}
+                alt={article.title}
+                className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center">
+                <span className="text-5xl opacity-20">✍️</span>
+              </div>
+            )}
           </div>
 
           <div className="p-6">
-            <div className="mb-3 flex items-center justify-between">
-              <div className="flex gap-2">
-                {article.categories.map((cat) => (
-                  <span
-                    key={cat}
-                    className="rounded-full bg-cyan-500 px-2.5 py-0.5 text-xs font-semibold text-slate-950"
-                  >
-                    {cat}
-                  </span>
-                ))}
-              </div>
-              <span className="text-xs text-slate-400">{article.pubDate}</span>
+            <div className="mb-3 flex items-center justify-between gap-2">
+              <span className="truncate rounded-full bg-cyan-500 px-2.5 py-0.5 text-xs font-semibold text-slate-950">
+                {article.category}
+              </span>
+              <span className="shrink-0 text-xs text-slate-400">
+                {article.pubDate}
+              </span>
             </div>
 
-            <h3 className="line-clamp-2 text-base font-bold leading-snug text-slate-900 group-hover:text-cyan-500 dark:text-white dark:group-hover:text-cyan-400">
+            <h3 className="line-clamp-2 text-base font-bold leading-snug text-slate-900 transition group-hover:text-cyan-500 dark:text-white dark:group-hover:text-cyan-400">
               {article.title}
             </h3>
 
