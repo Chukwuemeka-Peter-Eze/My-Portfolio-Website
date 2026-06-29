@@ -7,8 +7,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
 > **Live Site:** [chukwuemekapetereze.online](https://chukwuemekapetereze.online)  
-> **Author:** Chukwuemeka Peter Eze — Cloud Security & DevOps Engineer  
-> **Status:** Actively maintained — open to remote, global, and relocation opportunities
+> **Author:** Chukwuemeka Peter Eze - Cloud Security & DevOps Engineer  
+> **Status:** Actively maintained - open to remote, global, and relocation opportunities
 
 A production-grade, full-stack portfolio website built with Next.js 16, TypeScript, and Tailwind CSS v4. Designed to showcase Cloud Security and DevOps engineering expertise to CTOs, recruiters, and hiring managers at global technology organizations.
 
