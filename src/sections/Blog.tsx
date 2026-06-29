@@ -1,6 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
-import BlogCard from "@/components/BlogCard";
-import { blogs } from "@/data/blogs";
+import MediumFeed from "@/components/ui/MediumFeed";
 
 export default function Blog() {
   return (
@@ -10,17 +9,21 @@ export default function Blog() {
           subtitle="Technical Writing"
           title="Latest Articles"
         />
-        <div className="grid gap-8 lg:grid-cols-3">
-          {blogs.slice(0, 6).map((blog) => (
-            <BlogCard key={blog.title} blog={blog} />
-          ))}
-        </div>
+
+        <p className="mb-12 max-w-2xl text-slate-500 dark:text-slate-400">
+          I write about cloud engineering, DevOps practices, AWS architecture,
+          Kubernetes, Terraform, and the lessons I learn building real
+          infrastructure. Articles update automatically as I publish.
+        </p>
+
+        <MediumFeed />
+
         <div className="mt-16 text-center">
-          <a
+          <a         
             href="https://medium.com/@ChukwuemekaPeterEze"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl bg-cyan-500 px-8 py-4 text-lg font-semibold text-slate-950 transition hover:bg-cyan-400"
+            className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-8 py-4 text-lg font-semibold text-slate-950 transition hover:bg-cyan-400"
           >
             View All Articles on Medium →
           </a>

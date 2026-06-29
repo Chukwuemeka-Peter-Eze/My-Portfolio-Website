@@ -4,29 +4,22 @@ export const profile = {
   title: "Cloud Security & DevOps Engineer",
 
   tagline:
-    "Designing secure, scalable cloud infrastructure and modern DevSecOps platforms.",
+    "I build the infrastructure that keeps modern software secure, scalable, and always on.",
 
   location:
     "Nigeria • Open to Remote • Global • Relocation",
 
-  email:
-    "Chukwuemekapetereze@proton.me",
+  email: "Chukwuemekapetereze@proton.me",
 
-  phone:
-    "+2347069393099",
+  phone: "+2347069393099",
 
-  github:
-    "https://github.com/Chukwuemeka-Peter-Eze",
+  github: "https://github.com/Chukwuemeka-Peter-Eze",
 
-  linkedin:
-    "https://www.linkedin.com/in/chukwuemekapetereze/",
+  linkedin: "https://www.linkedin.com/in/chukwuemekapetereze/",
 
-  medium:
-    "https://medium.com/@ChukwuemekaPeterEze",
+  medium: "https://medium.com/@ChukwuemekaPeterEze",
 
-  portfolio:
-    "https://chukwuemekapetereze.online",
+  portfolio: "https://chukwuemekapetereze.online",
 
-  motto:
-    "Learn relentlessly. Build intentionally. Improve continuously."
+  motto: "Learn relentlessly. Build intentionally. Improve continuously.",
 };
