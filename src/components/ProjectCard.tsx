@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ExternalLink, Workflow } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
-type Project = {
+export type Project = {
   title: string;
   description: string;
   image: string;

@@ -1,4 +1,6 @@
-export const projects = [
+import type { Project } from "@/components/ProjectCard";
+
+export const projects: Project[] = [
   {
     featured: true,
     category: "AWS",
