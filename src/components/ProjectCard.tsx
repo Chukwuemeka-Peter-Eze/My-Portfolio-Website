@@ -19,11 +19,11 @@ type Project = {
 
   metrics?: string[];
 
-  category: string;
+  category?: string;
 
-  difficulty: "Intermediate" | "Advanced" | "Enterprise";
+  difficulty?: "Intermediate" | "Advanced" | "Enterprise";
 
-  featured: boolean;
+  featured?: boolean;
 };
 
 export default function ProjectCard({
@@ -47,11 +47,11 @@ export default function ProjectCard({
           )}
 
           <span className="rounded-full border border-white/40 bg-black/50 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-            {project.category}
+            {project.category ?? "Cloud Engineering"}
           </span>
 
           <span className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-            {project.difficulty}
+            {project.difficulty ?? "Advanced"}
           </span>
 
         </div>
