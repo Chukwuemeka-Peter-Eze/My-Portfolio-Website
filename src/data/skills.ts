@@ -32,29 +32,35 @@ export const skillCategories = [
       "Kubernetes",
       "Amazon EKS",
       "Helm",
+      "NGINX Ingress",
     ],
   },
 
   {
-    title: "CI/CD & Platform Engineering",
+    title: "CI/CD & GitOps",
     icon: "workflow",
     skills: [
       "Git",
       "GitHub Actions",
       "Jenkins",
+      "Argo CD",
+      "GitOps",
       "Linux",
     ],
   },
 
   {
-    title: "Cloud Security",
+    title: "Cloud Security & DevSecOps",
     icon: "shield",
     skills: [
       "IAM",
       "RBAC",
+      "Least Privilege",
       "AWS KMS",
       "Secrets Manager",
-      "Least Privilege",
+      "HashiCorp Vault",
+      "SonarQube",
+      "Trivy",
     ],
   },
 
@@ -70,7 +76,7 @@ export const skillCategories = [
   },
 
   {
-    title: "Programming",
+    title: "Programming & Automation",
     icon: "code",
     skills: [
       "Python",
