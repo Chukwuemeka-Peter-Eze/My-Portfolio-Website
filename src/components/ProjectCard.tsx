@@ -2,9 +2,16 @@ type Project = {
   title: string;
   description: string;
   image: string;
+
   technologies: string[];
+
   github: string;
+
+  demo?: string;
+
   architecture?: string;
+
+  highlights?: string[];
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -37,6 +44,21 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
 
+        {project.highlights && (
+        <div className="mt-5">
+        <ul className="space-y-2">
+          {project.highlights.map((item) => (
+          <li
+            key={item}
+            className="text-sm text-slate-600 dark:text-slate-300"
+          >
+            ✅ {item}
+          </li>
+          ))}
+        </ul>
+        </div>
+        )}
+
         <div className="mt-6 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
@@ -48,7 +70,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        <div className="mt-8 flex gap-3">
+        <div className="mt-8 flex flex-wrap gap-3">
           <a         
             href={project.github}
             target="_blank"
@@ -57,6 +79,17 @@ export default function ProjectCard({ project }: { project: Project }) {
           >
             View on GitHub →
           </a>
+
+          {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-cyan-500 px-5 py-3 font-semibold text-cyan-500 transition hover:bg-cyan-500 hover:text-white"
+          >
+            Live Demo
+          </a>
+        )}
         </div>
       </div>
     </div>
