@@ -2,6 +2,7 @@ export const projects = [
   {
     featured: true,
     category: "AWS",
+    difficulty: "Advanced",
 
     title: "AWS Secure Multi-Tier Infrastructure",
 
@@ -45,6 +46,7 @@ export const projects = [
   {
     featured: true,
     category: "Terraform",
+    difficulty: "Advanced",
 
     title: "Terraform Infrastructure as Code Platform",
 
@@ -86,6 +88,7 @@ export const projects = [
   {
     featured: true,
     category: "Kubernetes",
+    difficulty: "Enterprise",
 
     title: "Amazon EKS Kubernetes Platform",
 
@@ -126,6 +129,7 @@ export const projects = [
   {
     featured: true,
     category: "CI/CD",
+    difficulty: "Enterprise",
 
     title: "Enterprise CI/CD Platform",
 
@@ -167,6 +171,7 @@ export const projects = [
   {
     featured: true,
     category: "Automation",
+    difficulty: "Advanced",
 
     title: "Python AWS Automation Platform",
 
@@ -207,6 +212,7 @@ export const projects = [
   {
     featured: true,
     category: "Monitoring",
+    difficulty: "Enterprise",
 
     title: "Monitoring & Observability Platform",
 
