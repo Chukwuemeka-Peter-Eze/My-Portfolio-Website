@@ -52,7 +52,7 @@ export default function About() {
               compromised, and what would the blast radius be?"
             </blockquote>
             <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-              — Chukwuemeka Peter Eze
+              - Chukwuemeka Peter Eze
             </p>
           </div>
         </FadeUp>
@@ -65,7 +65,7 @@ export default function About() {
                 <p className="text-lg leading-8 text-slate-600 dark:text-slate-300">
                   I'm a Cloud Security & DevOps Engineer on a focused mission:
                   to design and operate cloud infrastructure that organizations
-                  can trust — infrastructure that is secure by design, automated
+                  can trust, infrastructure that is secure by design, automated
                   end-to-end, and built to scale globally.
                 </p>
                 <p className="text-lg leading-8 text-slate-600 dark:text-slate-300">
@@ -73,12 +73,12 @@ export default function About() {
                   container platforms, Terraform infrastructure as code, CI/CD
                   automation, DevSecOps pipelines, and observability platforms.
                   Every project in this portfolio was built following real-world
-                  production engineering practices — not tutorials.
+                  production engineering practices, not tutorials.
                 </p>
                 <p className="text-lg leading-8 text-slate-600 dark:text-slate-300">
                   I'm actively pursuing AWS, Kubernetes, and Terraform
                   certifications while building hands-on projects that demonstrate
-                  what I can do — because credentials matter, but working
+                  what I can do because credentials matter, but working
                   infrastructure matters more.
                 </p>
                 <p className="font-medium italic text-cyan-500">
@@ -118,8 +118,8 @@ export default function About() {
                   Quick Facts
                 </h3>
                 <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                  <li>📍 Based in Nigeria — open to global remote & relocation</li>
-                  <li>🎯 Currently: Module 8 — CI/CD with Jenkins</li>
+                  <li>📍 Based in Nigeria: Open to Global Remote & Relocation</li>
+                  <li>🎯 Currently: Module 8 - CI/CD with Jenkins</li>
                   <li>📜 Pursuing: AWS Cloud Practitioner, CKA, Terraform Associate</li>
                   <li>✍️ Writing about cloud engineering on Medium</li>
                   <li>🤝 Available for freelance, contract & full-time roles</li>
@@ -141,7 +141,7 @@ export default function About() {
               </h3>
               <p className="mt-3 max-w-2xl text-slate-500 dark:text-slate-400">
                 Tracking my progress through the TechWorld with Nana DevOps
-                Bootcamp — 16 modules covering the complete DevOps engineering
+                Bootcamp - 16 modules covering the complete DevOps engineering
                 stack from Linux to Prometheus.
               </p>
             </div>
