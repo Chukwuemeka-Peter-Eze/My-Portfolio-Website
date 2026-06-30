@@ -8,7 +8,7 @@ export async function getProjects() {
 
     projects.map(async (project) => {
 
-      const github = await getRepository(project.repository);
+      const github = await getRepository(project.github);
 
       return {
 
