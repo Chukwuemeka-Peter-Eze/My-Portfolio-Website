@@ -3,39 +3,53 @@
 import { useEffect, useState } from "react";
 
 const sectionIds = [
+  "home",
   "about",
   "skills",
   "projects",
   "experience",
   "certifications",
+  "github",
   "blog",
   "contact",
 ];
 
 export default function useActiveSection() {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const handleScroll = () => {
+      // Offset for the fixed navbar
+      const scrollPosition = window.scrollY + 180;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.4,
+      let currentSection = "home";
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+
+        if (!section) continue;
+
+        if (scrollPosition >= section.offsetTop) {
+          currentSection = id;
+        }
       }
-    );
 
-    sections.forEach((section) => observer.observe(section));
+      setActiveSection(currentSection);
+    };
 
-    return () => observer.disconnect();
+    // Set active section on initial load
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return activeSection;

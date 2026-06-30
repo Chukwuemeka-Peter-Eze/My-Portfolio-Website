@@ -12,7 +12,10 @@ import { stats } from "@/data/stats";
 
 export default function Hero() {
   return (
-    <Section className="pt-40">
+    <Section
+        id="home"
+        className="pt-40"
+      >
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-2">
 

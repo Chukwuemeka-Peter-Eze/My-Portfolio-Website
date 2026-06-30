@@ -4,6 +4,7 @@ export const navigation = [
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
   { name: "Certifications", href: "#certifications" },
+  { name: "GitHub", href: "#github" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ];
