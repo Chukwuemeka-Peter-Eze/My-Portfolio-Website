@@ -1,56 +1,246 @@
 export const projects = [
   {
+    featured: true,
+    category: "AWS",
+
     title: "AWS Secure Multi-Tier Infrastructure",
+
     description:
-      "Designed and deployed a secure AWS architecture with VPC, EC2, IAM, Security Groups, private/public subnets, Route 53, Load Balancer, Auto Scaling, and S3 following cloud security best practices.",
+      "Designed and deployed a highly available AWS infrastructure with public/private networking, load balancing, auto scaling, IAM security controls, and production-ready networking following AWS Well-Architected Framework principles.",
+
     image: "/projects/aws-multi-tier.png",
-    technologies: ["AWS", "VPC", "EC2", "IAM", "S3", "Route 53", "ALB"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/Aws-ec2-web-deployment",
+
     architecture: "/projects/aws-multi-tier.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Aws-ec2-web-deployment",
+
+    technologies: [
+      "AWS",
+      "EC2",
+      "VPC",
+      "IAM",
+      "Route53",
+      "ALB",
+      "Auto Scaling",
+      "S3",
+    ],
+
+    highlights: [
+      "Designed secure public/private subnet architecture across multiple Availability Zones.",
+      "Implemented least-privilege IAM roles and Security Groups.",
+      "Configured Application Load Balancer with Auto Scaling.",
+      "Built scalable cloud infrastructure following AWS best practices.",
+      "Applied production-grade networking and security architecture.",
+    ],
+
+    metrics: [
+      "AWS Well-Architected",
+      "Production Ready",
+      "High Availability",
+      "Scalable Infrastructure",
+    ],
   },
+
   {
-    title: "Infrastructure as Code with Terraform",
+    featured: true,
+    category: "Terraform",
+
+    title: "Terraform Infrastructure as Code Platform",
+
     description:
-      "Provisioned reusable AWS infrastructure using Terraform modules, remote state management with S3 backend, DynamoDB locking, variables, and Infrastructure as Code best practices.",
+      "Provisioned reusable AWS infrastructure using modular Terraform code with remote state management, reusable modules, version-controlled deployments, and Infrastructure as Code best practices.",
+
     image: "/projects/terraform.png",
-    technologies: ["Terraform", "AWS", "Git", "S3", "DynamoDB"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/Terraform-aws-infrastructure",
+
     architecture: "/projects/terraform.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Terraform-aws-infrastructure",
+
+    technologies: [
+      "Terraform",
+      "AWS",
+      "S3 Backend",
+      "DynamoDB",
+      "Git",
+      "IaC",
+    ],
+
+    highlights: [
+      "Provisioned AWS infrastructure entirely using Infrastructure as Code.",
+      "Implemented reusable Terraform modules.",
+      "Configured remote state management with S3 backend.",
+      "Enabled state locking using DynamoDB.",
+      "Improved deployment consistency through version-controlled infrastructure.",
+    ],
+
+    metrics: [
+      "Infrastructure as Code",
+      "Reusable Modules",
+      "Production Ready",
+      "Version Controlled",
+    ],
   },
+
   {
-    title: "Kubernetes Container Platform",
+    featured: true,
+    category: "Kubernetes",
+
+    title: "Amazon EKS Kubernetes Platform",
+
     description:
-      "Containerized applications with Docker and deployed them to Kubernetes while managing deployments, services, scaling, persistent storage, and networking with Helm charts.",
+      "Built a production-style Kubernetes environment on Amazon EKS featuring scalable container orchestration, Helm deployments, networking, persistent storage, and cloud-native workloads.",
+
     image: "/projects/kubernetes.png",
-    technologies: ["Docker", "Kubernetes", "Helm", "AWS EKS"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/tKubernetes-mongodb-deployment",
+
     architecture: "/projects/kubernetes.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Aws-eks-cluster",
+
+    technologies: [
+      "Amazon EKS",
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "AWS",
+    ],
+
+    highlights: [
+      "Provisioned production-ready Kubernetes clusters on Amazon EKS.",
+      "Managed deployments using Kubernetes manifests and Helm.",
+      "Implemented service discovery and networking.",
+      "Configured scalable container workloads.",
+      "Applied Kubernetes production deployment practices.",
+    ],
+
+    metrics: [
+      "Cloud Native",
+      "Production Ready",
+      "Container Orchestration",
+      "Scalable Platform",
+    ],
   },
+
   {
-    title: "CI/CD Automation Pipeline",
+    featured: true,
+    category: "CI/CD",
+
+    title: "Enterprise CI/CD Platform",
+
     description:
-      "Built automated CI/CD pipelines using Jenkins and GitHub Actions for continuous integration, Docker image building, artifact management with Nexus, and automated deployment to AWS EC2 and EKS.",
+      "Implemented complete CI/CD automation pipelines using Jenkins, GitHub Actions, Docker, Nexus Repository, Kubernetes, and AWS deployment workflows.",
+
     image: "/projects/cicd.png",
-    technologies: ["Jenkins", "GitHub Actions", "Docker", "Maven", "Nexus"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/Jenkins-cicd-pipeline",
+
     architecture: "/projects/cicd.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Eks-complete-cicd-pipeline",
+
+    technologies: [
+      "Jenkins",
+      "GitHub Actions",
+      "Docker",
+      "Nexus",
+      "Kubernetes",
+      "AWS",
+    ],
+
+    highlights: [
+      "Automated software delivery pipelines.",
+      "Integrated GitHub Actions with Jenkins.",
+      "Built Docker images automatically.",
+      "Deployed workloads to Amazon EKS.",
+      "Reduced manual deployment effort through CI/CD automation.",
+    ],
+
+    metrics: [
+      "CI/CD Automation",
+      "Production Pipeline",
+      "Continuous Delivery",
+      "Enterprise DevOps",
+    ],
   },
+
   {
-    title: "DevSecOps Pipeline",
+    featured: true,
+    category: "Automation",
+
+    title: "Python AWS Automation Platform",
+
     description:
-      "Integrated secrets management, security scanning, IAM least-privilege controls, and secure deployment workflows into automated CI/CD pipelines with Docker and Kubernetes.",
-    image: "/projects/devsecops.png",
-    technologies: ["DevSecOps", "IAM", "KMS", "Docker", "Jenkins"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/Eks-complete-cicd-pipeline",
-    architecture: "/projects/devsecops.png",
+      "Developed automation scripts using Python and Boto3 to automate AWS infrastructure management, operational tasks, monitoring, and cloud administration.",
+
+    image: "/projects/python.png",
+
+    architecture: "/projects/python.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Python-aws-boto3-automation",
+
+    technologies: [
+      "Python",
+      "Boto3",
+      "AWS CLI",
+      "CloudWatch",
+      "Automation",
+    ],
+
+    highlights: [
+      "Automated AWS administrative tasks using Boto3.",
+      "Reduced repetitive cloud operations.",
+      "Improved operational efficiency.",
+      "Integrated Python scripting with AWS APIs.",
+      "Created reusable cloud automation workflows.",
+    ],
+
+    metrics: [
+      "Automation",
+      "AWS SDK",
+      "Operational Efficiency",
+      "Production Scripts",
+    ],
   },
+
   {
+    featured: true,
+    category: "Monitoring",
+
     title: "Monitoring & Observability Platform",
+
     description:
-      "Implemented infrastructure monitoring using Prometheus Operator on Kubernetes with Helm, Grafana dashboards, AlertManager with email receivers, and custom application metrics collection.",
+      "Designed an enterprise monitoring platform using Prometheus, Grafana, AlertManager, Helm, and Kubernetes to provide infrastructure visibility and proactive alerting.",
+
     image: "/projects/monitoring.png",
-    technologies: ["Prometheus", "Grafana", "Kubernetes", "Helm", "AlertManager"],
-    github: "https://github.com/Chukwuemeka-Peter-Eze/Prometheus-monitoring-stack",
+
     architecture: "/projects/monitoring.png",
+
+    github:
+      "https://github.com/Chukwuemeka-Peter-Eze/Prometheus-monitoring-stack",
+
+    technologies: [
+      "Prometheus",
+      "Grafana",
+      "AlertManager",
+      "Helm",
+      "Kubernetes",
+    ],
+
+    highlights: [
+      "Built enterprise monitoring dashboards.",
+      "Collected infrastructure and application metrics.",
+      "Configured automated alerting.",
+      "Implemented Kubernetes monitoring.",
+      "Improved infrastructure observability and reliability.",
+    ],
+
+    metrics: [
+      "Enterprise Monitoring",
+      "Observability",
+      "Real-Time Alerting",
+      "Production Ready",
+    ],
   },
 ];
