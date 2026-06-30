@@ -10,23 +10,36 @@ import Blog from "@/sections/Blog";
 import Contact from "@/sections/Contact";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
     <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+      <ScrollToTop />
+
       <Navbar />
+
       <Hero />
+
       <About />
+
       <Skills />
+
       <Projects />
+
       <Experience />
+
       <Certifications />
+
       <GitHub />
+
       <Blog />
+
       <Contact />
+
       <Footer />
+
       <CommandPalette />
     </main>
-    
   );
 }

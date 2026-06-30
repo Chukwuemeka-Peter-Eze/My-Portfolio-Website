@@ -1,20 +1,27 @@
 "use client";
 
 import useScroll from "@/hooks/useScroll";
+import useActiveSection from "@/hooks/useActiveSection";
+import useNavigateSection from "@/hooks/useNavigateSection";
+
 import Link from "next/link";
 import clsx from "clsx";
+
 import { Menu, X, House } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 import ThemeToggle from "@/components/ThemeToggle";
 import { navigation } from "@/data/navigation";
-import useActiveSection from "@/hooks/useActiveSection";
 
 export default function Navbar() {
   const pathname = usePathname();
+
   const activeSection = useActiveSection();
+  const navigateSection = useNavigateSection();
+
   const [isOpen, setIsOpen] = useState(false);
+
   const scrolled = useScroll();
 
   const handleHomeClick = (
@@ -64,18 +71,20 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
-            <a
+            <button
               key={item.name}
-              href={item.href}
+              onClick={() =>
+                navigateSection(item.href.split("#")[1])
+              }
               className={clsx(
                 "text-sm transition-all duration-300 hover:text-cyan-500",
-                activeSection === item.href.substring(1)
+                activeSection === item.href.split("#")[1]
                   ? "font-semibold text-cyan-500"
                   : "text-slate-600 dark:text-slate-300"
               )}
             >
               {item.name}
-            </a>
+            </button>
           ))}
 
           <Link
@@ -112,14 +121,21 @@ export default function Navbar() {
             </Link>
 
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-slate-700 transition hover:text-cyan-500 dark:text-slate-300"
+                onClick={() => {
+                  navigateSection(item.href.split("#")[1]);
+                  setIsOpen(false);
+                }}
+                className={clsx(
+                  "text-left transition hover:text-cyan-500",
+                  activeSection === item.href.split("#")[1]
+                    ? "font-semibold text-cyan-500"
+                    : "text-slate-700 dark:text-slate-300"
+                )}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
 
             <Link
