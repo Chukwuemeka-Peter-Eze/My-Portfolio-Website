@@ -138,7 +138,7 @@ export const projects: Project[] = [
     description:
       "Implemented complete CI/CD automation pipelines using Jenkins, GitHub Actions, Docker, Nexus Repository, Kubernetes, and AWS deployment workflows.",
 
-    image: "/projects/cicd.png",
+    image: "/projects/cicd.gif",
 
     architecture: "/projects/cicd.gif",
 
