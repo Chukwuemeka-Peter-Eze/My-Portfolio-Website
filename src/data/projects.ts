@@ -140,7 +140,7 @@ export const projects: Project[] = [
 
     image: "/projects/cicd.png",
 
-    architecture: "/projects/cicd.png",
+    architecture: "/projects/cicd.gif",
 
     github:
       "https://github.com/Chukwuemeka-Peter-Eze/Eks-complete-cicd-pipeline",
