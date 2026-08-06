@@ -1,23 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "miro.medium.com",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn-images-1.medium.com",
-      },
-      {
-        protocol: "https",
-        hostname: "*.medium.com",
-      },
-    ],
-  },
+  /* config options here */
 };
 
 export default nextConfig;
