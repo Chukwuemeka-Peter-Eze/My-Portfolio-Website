@@ -3,7 +3,7 @@ export const bootcamp = {
   url: "https://www.techworld-with-nana.com/devops-bootcamp",
   startDate: "2025-06-01",
   expectedCompletion: "September 2026",
-  currentModule: 8,
+  currentModule: 12,
   totalModules: 16,
 
   modules: [
@@ -64,8 +64,8 @@ export const bootcamp = {
     {
       number: 8,
       title: "Build Automation & CI/CD with Jenkins",
-      status: "in-progress" as const,
-      completedDate: null,
+      status: "completed" as const,
+      completedDate: "2025-11-01",
       projects: [
         "twn-jenkins-cicd-pipeline",
         "twn-jenkins-shared-library",
@@ -75,8 +75,8 @@ export const bootcamp = {
     {
       number: 9,
       title: "AWS Services",
-      status: "planned" as const,
-      completedDate: null,
+      status: "completed" as const,
+      completedDate: "2025-12-01",
       projects: [
         "twn-aws-ec2-web-deployment",
         "twn-aws-jenkins-cicd-pipeline",
@@ -87,8 +87,8 @@ export const bootcamp = {
     {
       number: 10,
       title: "Container Orchestration with Kubernetes",
-      status: "planned" as const,
-      completedDate: null,
+      status: "completed" as const,
+      completedDate: "2026-01-15",
       projects: [
         "twn-kubernetes-mongodb-deployment",
         "twn-kubernetes-helm-statefulset",
@@ -99,8 +99,8 @@ export const bootcamp = {
     {
       number: 11,
       title: "Kubernetes on AWS — EKS",
-      status: "planned" as const,
-      completedDate: null,
+      status: "completed" as const,
+      completedDate: "2026-02-15",
       projects: [
         "twn-aws-eks-cluster",
         "twn-eks-jenkins-cicd-pipeline",
@@ -110,8 +110,8 @@ export const bootcamp = {
     {
       number: 12,
       title: "Infrastructure as Code with Terraform",
-      status: "planned" as const,
-      completedDate: null,
+      status: "completed" as const,
+      completedDate: "2026-03-20",
       projects: [
         "twn-terraform-aws-infrastructure",
         "twn-terraform-modules",
@@ -123,7 +123,7 @@ export const bootcamp = {
     {
       number: 13,
       title: "Programming with Python",
-      status: "planned" as const,
+      status: "in-progress" as const,
       completedDate: null,
       projects: ["twn-python-automation-scripts"],
     },
