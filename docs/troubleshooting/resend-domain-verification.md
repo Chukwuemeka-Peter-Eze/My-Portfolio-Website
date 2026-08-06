@@ -119,9 +119,7 @@ Failed
 
 ### Verification Status
 
-<p align="center">
-<img src="../..public/assets/resend-failed.png" width="1000">
-</p>
+![Resend Verification Failed](images/resend-failed.png)
 
 All required DNS records failed verification:
 
@@ -206,9 +204,7 @@ Verified
 ```
 ### Verification Status
 
-<p align="center">
-<img src="../..public/assets/resend-verified.png" width="1000">
-</p>
+![Resend Verification Successful](images/resend-verified.png)
 
 ---
 
