@@ -120,7 +120,7 @@ Failed
 ### Verification Status
 
 <p align="center">
-<img src="public/assets/resend-failed.png" width="1000">
+<img src="../..public/assets/resend-failed.png" width="1000">
 </p>
 
 All required DNS records failed verification:
@@ -207,7 +207,7 @@ Verified
 ### Verification Status
 
 <p align="center">
-<img src="public/assets/resend-verified.png" width="1000">
+<img src="../..public/assets/resend-verified.png" width="1000">
 </p>
 
 ---
