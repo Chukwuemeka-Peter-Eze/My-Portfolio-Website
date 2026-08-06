@@ -117,8 +117,6 @@ The domain status showed:
 Failed
 ```
 
-### Verification Status
-
 ![Resend Verification Failed](images/resend-failed.png)
 
 All required DNS records failed verification:
@@ -202,8 +200,6 @@ Status changed to:
 ```
 Verified
 ```
-### Verification Status
-
 ![Resend Verification Successful](images/resend-verified.png)
 
 ---
