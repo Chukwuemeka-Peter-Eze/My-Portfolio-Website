@@ -119,7 +119,7 @@ Failed
 
 ### Verification Status
 
-![Verified Status](public/assets/images/resend-failed.png)
+![Verified Status](public/assets/resend-failed.png)
 
 
 All required DNS records failed verification:
@@ -205,7 +205,7 @@ Verified
 ```
 ### Verification Status
 
-![Verified Status](public/assets/images/resend-verified.png)
+![Changed Verified Status](public/assets/resend-verified.png)
 
 ---
 
