@@ -8,7 +8,7 @@ export const certificationJourney = [
 
     status: "In Progress",
 
-    progress: 45,
+    progress: 75,
 
     expected: "September 2026",
 
