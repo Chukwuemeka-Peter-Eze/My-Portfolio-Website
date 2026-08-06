@@ -117,6 +117,11 @@ The domain status showed:
 Failed
 ```
 
+### Verification Status
+
+![Verified Status](public/assets/images/resend-failed.png)
+
+
 All required DNS records failed verification:
 
 - DKIM
@@ -198,6 +203,9 @@ Status changed to:
 ```
 Verified
 ```
+### Verification Status
+
+![Verified Status](public/assets/images/resend-verified.png)
 
 ---
 
@@ -301,7 +309,7 @@ This approach reduces troubleshooting time and improves reliability.
 - Root Cause Analysis
 - Production Incident Resolution
 - Technical Documentation
-
+g
 ---
 
 # Outcome
